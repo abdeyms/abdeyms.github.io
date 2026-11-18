@@ -70,7 +70,7 @@ const GITHUB_USER = 'abdeyms';
                 const repos = await rRes.json();
 
                 if (user.avatar_url) document.getElementById('gh-avatar').src = user.avatar_url;
-                if (user.name) document.getElementById('gh-name').textContent = user.name;
+                document.getElementById('gh-name').textContent = 'Abdumalikov Abdulboqiy';
                 const bioEl = document.getElementById('gh-bio');
                 const cleanBio = typeof user.bio === 'string' ? user.bio.trim() : '';
                 if (cleanBio && cleanBio.toLowerCase() !== 'gg') {
