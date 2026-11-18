@@ -1,468 +1,508 @@
 :root {
-            --dune-black: #080806;
-            --dune-ink: #11100d;
-            --dune-sand: #c6a46a;
-            --dune-gold: #dfc28a;
-            --dune-burnt: #9a6a35;
-            --dune-muted: #a69e8d;
-        }
-
-        html {
-            background: var(--dune-black);
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background:
-                radial-gradient(circle at 80% 8%, rgba(176, 132, 70, 0.08), transparent 22rem),
-                linear-gradient(180deg, #090907 0%, #0d0c09 55%, #080806 100%);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #090907;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #6d5738;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--dune-gold);
-        }
-
-        .glass-header {
-            background: rgba(8, 8, 6, 0.82) !important;
-            backdrop-filter: blur(18px) saturate(125%);
-            -webkit-backdrop-filter: blur(18px) saturate(125%);
-            border-bottom-color: rgba(223, 194, 138, 0.12) !important;
-        }
-
-        .project-card {
-            background: linear-gradient(145deg, rgba(31, 29, 23, 0.92), rgba(14, 14, 11, 0.96)) !important;
-            border: 1px solid rgba(223, 194, 138, 0.12) !important;
-            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(223, 194, 138, 0.36) !important;
-            box-shadow: 0 22px 50px -18px rgba(198, 164, 106, 0.28);
-        }
-
-        .hero-grid {
-            isolation: isolate;
-            min-height: 720px;
-            background:
-                linear-gradient(90deg, rgba(8, 8, 6, 0.92) 0%, rgba(8, 8, 6, 0.68) 46%, rgba(8, 8, 6, 0.08) 78%, rgba(8, 8, 6, 0.24) 100%),
-                linear-gradient(180deg, rgba(30, 24, 15, 0.18), transparent 42%, rgba(8, 8, 6, 0.72) 100%),
-                url("https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1800&q=88") center 54% / cover no-repeat,
-                #15120d;
-        }
-
-        .hero-grid::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            opacity: 0.28;
-            background:
-                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 3px),
-                radial-gradient(circle at 30% 20%, rgba(255, 237, 190, 0.16), transparent 20%);
-            mix-blend-mode: soft-light;
-            pointer-events: none;
-        }
-
-        .hero-grid::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 16%;
-            z-index: -1;
-            background: linear-gradient(180deg, transparent, #080806);
-        }
-
-        @keyframes toastSlide {
-            from { transform: translateY(16px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .toast-item {
-            animation: toastSlide 0.25s ease-out forwards;
-        }
-
-        body {
-            color: #e8e1d2 !important;
-        }
-
-        .hero-grid h1,
-        #projects h2,
-        #skills h2,
-        #contact h2 {
-            font-family: "Cinzel", serif;
-            letter-spacing: -0.035em;
-        }
-
-        .hero-grid h1 {
-            text-shadow: 0 14px 44px rgba(0, 0, 0, 0.55);
-        }
-
-        .hero-grid h1 span {
-            color: #dfc28a;
-            background: none;
-            -webkit-text-fill-color: #dfc28a;
-        }
-
-        #projects,
-        #skills,
-        #contact,
-        #project-modal {
-            background-color: #0b0a08 !important;
-        }
-
-        #projects {
-            background:
-                linear-gradient(180deg, rgba(223, 194, 138, 0.025), transparent 16rem),
-                #0b0a08 !important;
-            border-top-color: rgba(223, 194, 138, 0.1) !important;
-        }
-
-        #skills {
-            background:
-                radial-gradient(circle at 50% 10%, rgba(223, 194, 138, 0.055), transparent 24rem),
-                #0d0c09;
-            border-top-color: rgba(223, 194, 138, 0.1) !important;
-        }
-
-        #contact {
-            background:
-                linear-gradient(135deg, rgba(223, 194, 138, 0.035), transparent 60%),
-                #090907;
-            border-top-color: rgba(223, 194, 138, 0.1) !important;
-        }
-
-        #projects h2,
-        #skills h2,
-        #contact h2,
-        #project-modal h3 {
-            color: #f1eadb;
-        }
-
-        #projects p,
-        #skills p,
-        #contact p {
-            color: #a69e8d;
-        }
-
-        .hero-grid .rounded-2xl,
-        #projects .rounded-2xl,
-        #contact .rounded-2xl {
-            border-color: rgba(223, 194, 138, 0.14);
-        }
-
-        #projects input,
-        #projects select {
-            background: rgba(8, 8, 6, 0.82) !important;
-            border-color: rgba(223, 194, 138, 0.12) !important;
-            color: #e8e1d2 !important;
-        }
-
-        #projects input:focus,
-        #projects select:focus {
-            border-color: rgba(223, 194, 138, 0.48) !important;
-            box-shadow: 0 0 0 3px rgba(223, 194, 138, 0.06);
-        }
-
-        #project-modal > div {
-            background: #0d0c09 !important;
-            border-color: rgba(223, 194, 138, 0.16) !important;
-        }
-
-        #project-modal [class*="bg-slate-200"],
-        #project-modal [class*="bg-slate-900"] {
-            border-color: rgba(223, 194, 138, 0.12);
-        }
-
-        /* Arrakis / cinematic art-direction overrides */
-        .glass-header {
-            background: rgba(8, 8, 6, 0.74) !important;
-            border-bottom: 1px solid rgba(223, 194, 138, 0.16) !important;
-        }
-
-        header a div.w-9 {
-            background: linear-gradient(135deg, #d8bd82, #7c5b31) !important;
-            color: #090907 !important;
-            border-radius: 2px !important;
-            box-shadow: 0 0 28px rgba(223, 194, 138, 0.12);
-        }
-
-        header a span {
-            color: #ede5d2 !important;
-        }
-
-        header a span span,
-        header nav a:hover,
-        #gh-bio span,
-        #gh-location i,
-        #language-filters button:hover,
-        #project-modal a,
-        footer a {
-            color: #dfc28a !important;
-        }
-
-        .hero-grid > .pointer-events-none {
-            display: none;
-        }
-
-        .hero-grid > div.relative {
-            padding-top: 1.5rem;
-        }
-
-        .hero-grid h1 {
-            max-width: 760px;
-            font-family: "Cinzel", Georgia, serif;
-            font-size: clamp(3.25rem, 7vw, 6.6rem) !important;
-            line-height: 0.88 !important;
-            letter-spacing: -0.06em;
-            text-transform: uppercase;
-            color: #f4ecd9 !important;
-            text-shadow: 0 12px 42px rgba(0, 0, 0, 0.82);
-        }
-
-        .hero-grid h1 span {
-            display: block;
-            margin-top: 0.12em;
-            color: #ddb978 !important;
-            -webkit-text-fill-color: #ddb978;
-        }
-
-        .hero-grid #gh-bio {
-            max-width: 610px;
-            color: rgba(239, 229, 207, 0.72) !important;
-            font-size: 0.95rem;
-            line-height: 1.75;
-            border-left: 1px solid rgba(223, 194, 138, 0.42);
-            padding-left: 1.25rem;
-        }
-
-        .hero-grid [class*="inline-flex"][class*="bg-sky-500"] {
-            background: rgba(8, 8, 6, 0.5) !important;
-            border: 1px solid rgba(223, 194, 138, 0.24) !important;
-            color: #d8c49a !important;
-            border-radius: 2px !important;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-        }
-
-        .hero-grid [class*="animate-ping"],
-        .hero-grid [class*="rounded-full"][class*="bg-emerald"] {
-            background: #ddb978 !important;
-        }
-
-        .hero-grid a[href="#projects"] {
-            background: #d4b875 !important;
-            color: #090907 !important;
-            border: 1px solid #e5c98e;
-            border-radius: 2px !important;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-family: "Cinzel", Georgia, serif;
-        }
-
-        .hero-grid a[href="#projects"]:hover {
-            background: #efdaaa !important;
-        }
-
-        .hero-grid a[href="https://github.com/abdeyms"] {
-            background: rgba(8, 8, 6, 0.62) !important;
-            color: #eee6d3 !important;
-            border: 1px solid rgba(223, 194, 138, 0.24) !important;
-            border-radius: 2px !important;
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-grid [class*="lg:w-2/5"] > div {
-            background: rgba(10, 9, 7, 0.78) !important;
-            border: 1px solid rgba(223, 194, 138, 0.18) !important;
-            border-radius: 3px !important;
-            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
-            backdrop-filter: blur(16px) saturate(90%);
-        }
-
-        #gh-avatar {
-            border: 1px solid rgba(223, 194, 138, 0.5) !important;
-            border-radius: 2px !important;
-            filter: sepia(0.12) contrast(1.05);
-        }
-
-        #gh-name {
-            font-family: "Cinzel", Georgia, serif;
-            color: #f1eadb !important;
-        }
-
-        #gh-location,
-        #api-status-badge,
-        [id^="gh-"]:where(.font-mono) {
-            color: #a99d82;
-        }
-
-        #gh-repos-count,
-        #gh-followers,
-        #gh-following {
-            color: #dfc28a !important;
-        }
-
-        #projects,
-        #skills,
-        #contact,
-        footer {
-            background-color: #090807 !important;
-        }
-
-        #projects,
-        #skills,
-        #contact {
-            background-image:
-                linear-gradient(rgba(223, 194, 138, 0.018) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(223, 194, 138, 0.018) 1px, transparent 1px);
-            background-size: 72px 72px;
-        }
-
-        #projects h2,
-        #skills h2,
-        #contact h2 {
-            text-transform: uppercase;
-            letter-spacing: -0.04em;
-        }
-
-        .project-card {
-            border-radius: 3px !important;
-            background:
-                linear-gradient(145deg, rgba(38, 34, 25, 0.92), rgba(12, 11, 8, 0.96)) !important;
-        }
-
-        #language-filters button {
-            border-radius: 2px !important;
-        }
-
-        #project-modal > div {
-            border-radius: 3px !important;
-        }
-
-        @media (min-width: 900px) {
-            .hero-grid > div.relative > div.flex {
-                display: grid !important;
-                grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.68fr);
-                align-items: center;
-                gap: 3.5rem;
-            }
-
-            .hero-grid > div.relative > div.flex > div:first-child {
-                grid-column: 1;
-                grid-row: 1;
-                text-align: left !important;
-            }
-
-            .hero-grid > div.relative > div.flex > div:last-child {
-                grid-column: 2;
-                grid-row: 1;
-                width: 100%;
-                max-width: 360px;
-                justify-self: end;
-            }
-        }
-
-        @media (max-width: 899px) {
-            .hero-grid {
-                min-height: 760px;
-                background-position: 62% center;
-                padding-top: 2.25rem !important;
-                padding-bottom: 2.75rem !important;
-            }
-
-            .hero-grid > div.relative > div.flex {
-                flex-direction: column !important;
-                gap: 1.5rem !important;
-            }
-
-            .hero-grid > div.relative > div.flex > div:first-child {
-                order: 1;
-                width: 100%;
-            }
-
-            .hero-grid > div.relative > div.flex > div:last-child {
-                order: 2;
-                width: 100%;
-                max-width: 350px;
-                margin: 0 auto;
-            }
-
-            .hero-grid h1 {
-                font-size: clamp(2.35rem, 10.5vw, 3.8rem) !important;
-                line-height: 0.94 !important;
-                text-align: left;
-                margin-bottom: 1rem;
-            }
-
-            .hero-grid h1 span {
-                margin-top: 0.08em;
-            }
-
-            .hero-grid [class*="inline-flex"][class*="bg-sky-500"] {
-                margin-bottom: 1.15rem;
-            }
-
-            .hero-grid #gh-bio {
-                max-width: 100%;
-                margin-bottom: 1.25rem;
-                padding-left: 0.85rem;
-                font-size: 0.86rem;
-                line-height: 1.55;
-            }
-
-            .hero-grid [href="#projects"],
-            .hero-grid [href="https://github.com/abdeyms"] {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .hero-grid [class*="lg:w-2/5"] {
-                margin-top: 0;
-            }
-
-            .hero-grid [class*="lg:w-2/5"] > div {
-                padding: 0.9rem !important;
-            }
-
-            #gh-avatar {
-                width: 56px !important;
-                height: 56px !important;
-            }
-
-            #projects,
-            #skills,
-            #contact {
-                background-size: 44px 44px;
-            }
-
-            #projects .grid,
-            #skills .grid,
-            #contact .grid {
-                gap: 0.75rem;
-            }
-
-            #projects h2,
-            #skills h2,
-            #contact h2 {
-                font-size: 1.75rem;
-                line-height: 1.15;
-            }
-
-            #project-modal .max-h-\[92vh\] {
-                max-height: 96vh;
-            }
-        }
+    --ink: #172033;
+    --muted: #687187;
+    --line: #e6e8ee;
+    --paper: #f7f8fb;
+    --white: #ffffff;
+    --blue: #3157d5;
+    --blue-soft: #edf1ff;
+    --green: #25866d;
+}
+
+html {
+    background: var(--paper);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    font-family: "Inter", sans-serif;
+}
+
+::selection {
+    background: #ccd6ff;
+    color: #172033;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eef0f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bac1d0;
+    border-radius: 8px;
+}
+
+.glass-header {
+    background: rgba(247, 248, 251, 0.92) !important;
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line) !important;
+}
+
+header a div.w-9 {
+    border-radius: 8px !important;
+    background: var(--ink) !important;
+    color: #fff !important;
+    box-shadow: none;
+}
+
+header a span {
+    color: var(--ink) !important;
+}
+
+header a span span {
+    color: var(--blue) !important;
+}
+
+header nav a {
+    color: #596176 !important;
+}
+
+header nav a:hover,
+#gh-bio span,
+footer a {
+    color: var(--blue) !important;
+}
+
+.hero-grid {
+    min-height: 620px;
+    isolation: isolate;
+    background:
+        linear-gradient(90deg, rgba(247, 248, 251, 0.97) 0%, rgba(247, 248, 251, 0.92) 58%, rgba(247, 248, 251, 0.52) 100%),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=82") 72% center / cover no-repeat,
+        var(--paper);
+}
+
+.hero-grid::before,
+.hero-grid::after,
+.hero-grid > .pointer-events-none {
+    display: none;
+}
+
+.hero-grid h1 {
+    color: var(--ink) !important;
+    text-shadow: none;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.055em;
+    line-height: 1.02 !important;
+}
+
+.hero-grid h1 span {
+    display: inline;
+    color: var(--blue) !important;
+    background: none;
+    -webkit-text-fill-color: var(--blue);
+}
+
+.hero-grid [class*="inline-flex"][class*="bg-sky-500"] {
+    border-radius: 999px !important;
+    background: #eef7f4 !important;
+    border: 1px solid #d7eae4 !important;
+    color: #397862 !important;
+}
+
+.hero-grid [class*="animate-ping"],
+.hero-grid [class*="rounded-full"][class*="bg-emerald"] {
+    background: #2e9b77 !important;
+}
+
+#gh-bio {
+    color: #657087 !important;
+    border-left: 3px solid #d9deec;
+}
+
+.hero-grid a[href="#projects"] {
+    background: var(--ink) !important;
+    color: #fff !important;
+    border: 1px solid var(--ink);
+    border-radius: 10px !important;
+    box-shadow: 0 8px 18px rgba(23, 32, 51, 0.12);
+}
+
+.hero-grid a[href="#projects"]:hover {
+    background: #263149 !important;
+}
+
+.hero-grid a[href="https://github.com/abdeyms"] {
+    background: #fff !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 10px !important;
+}
+
+.hero-grid [class*="lg:w-2/5"] > div {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 18px 46px rgba(31, 42, 68, 0.10);
+    backdrop-filter: blur(12px);
+}
+
+#gh-avatar {
+    border: 3px solid #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0 0 1px var(--line);
+}
+
+#gh-name {
+    color: var(--ink) !important;
+    font-family: "Inter", sans-serif;
+}
+
+#gh-location,
+#api-status-badge {
+    color: var(--muted) !important;
+}
+
+#gh-repos-count,
+#gh-followers,
+#gh-following {
+    color: var(--ink) !important;
+}
+
+#projects,
+#skills,
+#contact,
+#project-modal,
+footer {
+    background: var(--paper) !important;
+    background-image: none !important;
+    border-top-color: var(--line) !important;
+}
+
+#projects h2,
+#skills h2,
+#contact h2,
+#project-modal h3 {
+    color: var(--ink) !important;
+    font-family: "Inter", sans-serif;
+}
+
+#projects p,
+#skills p,
+#contact p {
+    color: var(--muted) !important;
+}
+
+.project-card {
+    background: #fff !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 5px 16px rgba(31, 42, 68, 0.05);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    border-color: #cfd5e3 !important;
+    box-shadow: 0 12px 28px rgba(31, 42, 68, 0.09);
+}
+
+#projects input,
+#projects select {
+    background: #fff !important;
+    border-color: var(--line) !important;
+    color: var(--ink) !important;
+}
+
+#projects input:focus,
+#projects select:focus {
+    border-color: #9eabdf !important;
+    box-shadow: 0 0 0 3px rgba(49, 87, 213, 0.08);
+}
+
+#language-filters button {
+    border-radius: 999px !important;
+}
+
+#project-modal > div {
+    background: #fff !important;
+    border-color: var(--line) !important;
+    border-radius: 14px !important;
+}
+
+.toast-item {
+    background: var(--ink) !important;
+}
+
+.project-card-rich {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+.project-thumbnail {
+    position: relative;
+    display: block;
+    height: 210px;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, #edf1ff 0%, #dce5ff 48%, #edf5f2 100%);
+    border-bottom: 1px solid var(--line);
+}
+
+.project-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.project-thumbnail:hover img {
+    transform: scale(1.025);
+    filter: brightness(1.03);
+}
+
+.project-thumbnail.thumbnail-fallback::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 78% 28%, rgba(49, 87, 213, 0.16), transparent 22%),
+        linear-gradient(135deg, #f7f8fc 0%, #edf1ff 55%, #edf5f2 100%);
+}
+
+.project-thumbnail.thumbnail-fallback::after {
+    content: "< />";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 86px;
+    height: 86px;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    background: var(--ink);
+    color: #fff;
+    font: 700 24px "JetBrains Mono", monospace;
+    box-shadow: 0 14px 30px rgba(23, 32, 51, 0.16);
+}
+
+.project-status {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(23, 32, 51, 0.10);
+}
+
+.project-status i {
+    color: var(--blue);
+}
+
+.project-open {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(23, 32, 51, 0.92);
+    color: #fff;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: 0.2s ease;
+}
+
+.project-thumbnail:hover .project-open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.project-card-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.project-card-heading h3 {
+    min-width: 0;
+    margin: 0;
+    color: var(--ink);
+    font-size: 18px;
+    font-weight: 750;
+}
+
+.project-card-heading h3 a {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.project-card-heading h3 a:hover {
+    color: var(--blue);
+}
+
+.project-stats {
+    display: flex;
+    flex-shrink: 0;
+    gap: 10px;
+    color: var(--muted);
+    font: 600 12px "JetBrains Mono", monospace;
+}
+
+.project-stats i {
+    color: #9aa2b4;
+}
+
+.project-card-body > p {
+    min-height: 44px;
+    margin: 10px 0 16px;
+    color: var(--muted) !important;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding: 13px 0;
+    border-top: 1px solid #edf0f5;
+    color: #8991a3;
+    font: 600 12px "JetBrains Mono", monospace;
+}
+
+.project-language {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #596176;
+}
+
+.project-language > span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.project-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.project-live-btn,
+.project-code-btn {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.18s ease;
+}
+
+.project-live-btn {
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: #fff;
+}
+
+.project-live-btn:hover {
+    background: #263149;
+}
+
+.project-code-btn {
+    border: 1px solid var(--line);
+    background: #fff;
+    color: #596176;
+}
+
+.project-code-btn:hover {
+    border-color: #bfc6d7;
+    background: #f7f8fb;
+    color: var(--ink);
+}
+
+@media (min-width: 900px) {
+    .hero-grid > div.relative > div.flex {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.65fr);
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .hero-grid > div.relative > div.flex > div:first-child {
+        grid-column: 1;
+        text-align: left !important;
+    }
+
+    .hero-grid > div.relative > div.flex > div:last-child {
+        grid-column: 2;
+        width: 100%;
+        max-width: 360px;
+        justify-self: end;
+    }
+
+    .hero-grid h1 {
+        max-width: 680px;
+        font-size: clamp(3.2rem, 5.8vw, 5.7rem) !important;
+    }
+}
+
+@media (max-width: 899px) {
+    .hero-grid {
+        min-height: 680px;
+        background:
+            linear-gradient(180deg, rgba(247, 248, 251, 0.96), rgba(247, 248, 251, 0.92)),
+            url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=78") 50% 20% / cover no-repeat;
+    }
+
+    .hero-grid h1 {
+        font-size: clamp(2.45rem, 11vw, 4rem) !important;
+    }
+
+    .hero-grid [href="#projects"],
+    .hero-grid [href="https://github.com/abdeyms"] {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #projects,
+    #skills,
+    #contact {
+        background-size: auto;
+    }
+
+    .project-thumbnail {
+        height: 180px;
+    }
+
+    .project-card-body {
+        padding: 16px;
+    }
+}

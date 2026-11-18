@@ -179,50 +179,47 @@ const GITHUB_USER = 'abdeyms';
                 const color = LANG_COLORS[lang] || '#94a3b8';
                 const desc = repo.description || `${repo.name} — Frontend veb-loyiha (@${GITHUB_USER}).`;
                 const isLatest = idx === 0 && sort === 'updated' && selectedLang === 'ALL' && !q;
+                const previewImage = `https://opengraph.githubassets.com/portfolio-${repo.updated_at}/${GITHUB_USER}/${repo.name}`;
+                const liveUrl = repo.homepage?.trim()
+                    || (repo.has_pages ? `https://${GITHUB_USER}.github.io/${repo.name}/` : '');
 
                 return `
-                    <article class="project-card flex flex-col justify-between rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
-                        <div>
-                            <div class="flex items-center justify-between gap-2 mb-4">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-9 h-9 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
-                                        <i class="fa-solid fa-folder-open"></i>
-                                    </div>
-                                    ${isLatest ? '<span class="px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-mono text-[11px] font-semibold">Yangi</span>' : ''}
-                                </div>
-                                <div class="flex items-center gap-3 text-xs font-mono text-slate-400">
-                                    <span><i class="fa-regular fa-star text-amber-400"></i> ${repo.stargazers_count || 0}</span>
-                                    <span><i class="fa-solid fa-code-fork text-sky-400"></i> ${repo.forks_count || 0}</span>
+                    <article class="project-card project-card-rich">
+                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
+                           class="project-thumbnail" aria-label="${repo.name} GitHub loyihasi">
+                            <img src="${previewImage}" alt="${repo.name} loyihasi" loading="lazy"
+                                 referrerpolicy="no-referrer"
+                                 onerror="this.closest('.project-thumbnail').classList.add('thumbnail-fallback'); this.remove();">
+                            ${isLatest ? '<span class="project-status"><i class="fa-solid fa-bolt"></i> Oxirgi loyiha</span>' : ''}
+                            <span class="project-open"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </a>
+
+                        <div class="project-card-body">
+                            <div class="project-card-heading">
+                                <h3>
+                                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
+                                </h3>
+                                <div class="project-stats">
+                                    <span title="Yulduzlar"><i class="fa-regular fa-star"></i> ${repo.stargazers_count || 0}</span>
+                                    <span title="Forklar"><i class="fa-solid fa-code-fork"></i> ${repo.forks_count || 0}</span>
                                 </div>
                             </div>
 
-                            <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2 truncate">
-                                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors">
-                                    ${repo.name}
-                                </a>
-                            </h3>
+                            <p>${desc}</p>
 
-                            <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3 mb-5 leading-relaxed">
-                                ${desc}
-                            </p>
-                        </div>
-
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3.5">
-                            <div class="flex items-center justify-between text-xs font-mono text-slate-400">
-                                <span class="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-medium">
-                                    <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${color}"></span>
-                                    ${lang}
+                            <div class="project-meta">
+                                <span class="project-language">
+                                    <span style="background-color: ${color}"></span>${lang}
                                 </span>
-                                <span>${formatDate(repo.updated_at)}</span>
+                                <span><i class="fa-regular fa-clock"></i> ${formatDate(repo.updated_at)}</span>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-2">
-                                <button type="button" onclick="openProjectModal('${repo.name}', 'preview')" 
-                                        class="py-2 px-3 rounded-xl bg-gradient-to-r from-sky-500/20 to-emerald-500/20 hover:from-sky-500/30 hover:to-emerald-500/30 text-sky-600 dark:text-sky-300 text-xs font-semibold border border-sky-500/30 transition-all flex items-center justify-center gap-1.5">
-                                    <i class="fa-solid fa-globe"></i> Saytni ko'rish
-                                </button>
-                                <button type="button" onclick="openProjectModal('${repo.name}', 'code')" 
-                                        class="py-2 px-3 rounded-xl bg-slate-100 dark:bg-slate-950 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-semibold border border-slate-200 dark:border-slate-800 transition-colors flex items-center justify-center gap-1.5">
+                            <div class="project-actions">
+                                ${liveUrl
+                                    ? `<a href="${liveUrl}" target="_blank" rel="noopener noreferrer" class="project-live-btn"><i class="fa-solid fa-globe"></i> Saytni ko'rish</a>`
+                                    : `<button type="button" onclick="openProjectModal('${repo.name}', 'preview')" class="project-live-btn"><i class="fa-solid fa-globe"></i> Ko'rinishi</button>`
+                                }
+                                <button type="button" onclick="openProjectModal('${repo.name}', 'code')" class="project-code-btn">
                                     <i class="fa-solid fa-code"></i> Kodni ko'rish
                                 </button>
                             </div>
