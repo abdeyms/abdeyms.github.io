@@ -378,15 +378,91 @@
 
         @media (max-width: 899px) {
             .hero-grid {
-                min-height: 820px;
+                min-height: 760px;
                 background-position: 62% center;
+                padding-top: 2.25rem !important;
+                padding-bottom: 2.75rem !important;
+            }
+
+            .hero-grid > div.relative > div.flex {
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+            }
+
+            .hero-grid > div.relative > div.flex > div:first-child {
+                order: 1;
+                width: 100%;
+            }
+
+            .hero-grid > div.relative > div.flex > div:last-child {
+                order: 2;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
             }
 
             .hero-grid h1 {
-                font-size: clamp(2.8rem, 12vw, 4.8rem) !important;
+                font-size: clamp(2.35rem, 10.5vw, 3.8rem) !important;
+                line-height: 0.94 !important;
+                text-align: left;
+                margin-bottom: 1rem;
+            }
+
+            .hero-grid h1 span {
+                margin-top: 0.08em;
+            }
+
+            .hero-grid [class*="inline-flex"][class*="bg-sky-500"] {
+                margin-bottom: 1.15rem;
+            }
+
+            .hero-grid #gh-bio {
+                max-width: 100%;
+                margin-bottom: 1.25rem;
+                padding-left: 0.85rem;
+                font-size: 0.86rem;
+                line-height: 1.55;
+            }
+
+            .hero-grid [href="#projects"],
+            .hero-grid [href="https://github.com/abdeyms"] {
+                width: 100%;
+                justify-content: center;
             }
 
             .hero-grid [class*="lg:w-2/5"] {
-                margin-top: 1.5rem;
+                margin-top: 0;
+            }
+
+            .hero-grid [class*="lg:w-2/5"] > div {
+                padding: 0.9rem !important;
+            }
+
+            #gh-avatar {
+                width: 56px !important;
+                height: 56px !important;
+            }
+
+            #projects,
+            #skills,
+            #contact {
+                background-size: 44px 44px;
+            }
+
+            #projects .grid,
+            #skills .grid,
+            #contact .grid {
+                gap: 0.75rem;
+            }
+
+            #projects h2,
+            #skills h2,
+            #contact h2 {
+                font-size: 1.75rem;
+                line-height: 1.15;
+            }
+
+            #project-modal .max-h-\[92vh\] {
+                max-height: 96vh;
             }
         }
